@@ -369,3 +369,22 @@
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
+    - type: entity
+  parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  id: TOSSBlueRobe
+  name: Blue Robe
+  description: An evil-looking piece of cult armor, made of bones.
+  components:
+  - type: Sprite
+    sprite: TOSS14\Clothing\OuterClothing\Armor\BlueRobe.rsi
+  - type: Clothing
+    sprite: TOSS14\Clothing\OuterClothing\Armor\BlueRobe.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+  - type: GroupExamine
+
