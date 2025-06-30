@@ -39,6 +39,8 @@
       heatDamage:
         types:
           Heat : 0.1 #per second, scales with temperature & other constants
+    - type: Inventory
+      templateId: TOSSTailHumanoid
     - type: MovementSpeedModifier
       baseWalkSpeed : 2.7
       baseSprintSpeed : 4.6
