@@ -1,0 +1,21 @@
+- type: entity
+  name: Debug Tail Bag!
+  id: TOSSDebugTailBag
+  parent: BaseStorageItem
+  description: TailThingy
+  components:
+  - type: Sprite
+    sprite: TOSS14/Clothing/Tail/TailBagDebug.yml
+    state: icon
+  - type: Clothing
+    sprite: TOSS14/Clothing/Tail/TailBagDebug.yml
+    quickEquip: false
+    slots:
+    - tail
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+    - 4,0,5,1

@@ -40,6 +40,7 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "tail" ] #TOSS-Tweak
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
@@ -331,6 +332,7 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "tail" ] #TOSS-Tweak
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
   - type: Appearance
