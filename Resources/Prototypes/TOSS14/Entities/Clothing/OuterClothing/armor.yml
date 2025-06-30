@@ -23,7 +23,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.30
 
-    - type: entity
+- type: entity
   parent: ClothingOuterStorageBase
   id: TOSSBlueKG
   name: Blue Coat
