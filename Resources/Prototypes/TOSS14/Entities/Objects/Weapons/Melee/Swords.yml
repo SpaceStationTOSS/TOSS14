@@ -1,29 +1,116 @@
+
+#         --------BASEPARENTS-------
+
 - type: entity
-  name: TOSSSunlightStraightSword #//TOSS - Название предмета, можно писать всё что угодно, локализация всё равно перекроет этот текст
-  parent: BaseSword #// TOSS - Родитель предмета, тобишь, база на которой строиться наш предмет
-  id: TOSSSunlightSSword #// TOSS - Уникальный Айди этого предмета, если другие переменные можно просто скопировать, данный айди следует переименовать, дабы не было двух одинаковых 
-  description: A sword of sunlight, i guess.  #// TOSS - Описание, также как и с названием можно писать всё что угодно
+  name: TOSSBaseSword
+  parent: BaseSword
+  id: TOSSBaseSword
+  categories: [ HideSpawnMenu ]
+  description: A sword, lol
   components:
-  - type: Sprite
-    sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi #// TOSS - Это отвечает за отображение спрайта в мире и иконках
   - type: MeleeWeapon
-    attackRate: 0.4 #//TOSS - Тут редактируется скорость атаки, Чем меньше число тем медленее атака (0.1 - медленно / 9 - быстро)
+    attackRate: 0.8
     damage:
       types:
-        Slash: 17 #//TOSS Damage - Тут редактируется урон
-        Blunt: 14 #//TOSS Damage - Тут редактируется урон
+        Slash: 1
+        Blunt: 1
+        Piercing: 1
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg #//TOSS Sound - Это отвечает за звуки
+        path: /Audio/Weapons/bladeslice.ogg 
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi #//TOSS Type - Это показывает игре то, что этот предмет имеет спрайт в руках
-    size: Ginormous #//TOSS - Это указывает игре насколько обьект большой, имеется несколько видов, но именно этот и запрещает сувать вещи в рюкзаки
+    size: Ginormous
   - type: Tag
     tags:
-    - SheathableSword #//TOSS - Это переменная которая и позволяет сунуть именно этот предмет в ножны
+    - SheathableSword
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
+  - type: ExaminableDamage
+    messages: TOSSSwordDamage
+  - type: DamageOnHit
+    damage:
+      types:
+        Blunt: 5
+
+
+
+#         --------SWORDS-------
+
+
+
+- type: entity
+  name: TOSSSunlightStraightSword
+  parent: TOSSBaseSword
+  id: TOSSSunlightSSword
+  description: A sword of sunlight, i guess.
+  components:
+  - type: Sprite
+    sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.4
+    damage:
+      types:
+        Slash: 17
+        Blunt: 14
+  - type: Item 
+    sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          TOSSBrokenSunlightStraightSword:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
 
 - type: entity
   name: TOSSPalash
-  parent: BaseSword
+  parent: TOSSBaseSword
   id: TOSSPalash
   description: A sword of sunlight, i guess.
   components:
@@ -35,18 +122,40 @@
       types:
         Slash: 10 
         Blunt: 7
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg 
   - type: Item 
     sprite: TOSS14/Objects/Weapons/Melee/Palash.rsi
-    size: Ginormous
-  - type: Tag
-    tags:
-    - SheathableSword
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          TOSSBrokenPalash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
 
 - type: entity
   name: TOSSRicardoRapire
-  parent: BaseSword
+  parent: TOSSBaseSword
   id: TOSSRicardoRapire
   description: A sword of sunlight, i guess.
   components:
@@ -59,45 +168,87 @@
         Slash: 3
         Blunt: 5
         Piercing: 7
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg 
   - type: Item 
     sprite: TOSS14/Objects/Weapons/Melee/RicardoRapire.rsi
-    size: Ginormous
-  - type: Tag
-    tags:
-    - SheathableSword
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          TOSSBrokenRicardoRapire:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
 
-#//Я Оставил для тебя обьяснения в первом энтити, думаю, тебе будет более понятнее таким образом, удачного создания, друг :3
 - type: entity
-  name: TOSSSteelrapire #//TOSS - Название предмета, можно писать всё что угодно, локализация всё равно перекроет этот текст
-  parent: BaseSword #// TOSS - Родитель предмета, тобишь, база на которой строиться наш предмет
-  id: TOSSSteelrapire #// TOSS - Уникальный Айди этого предмета, если другие переменные можно просто скопировать, данный айди следует переименовать, дабы не было двух одинаковых 
-  description: A sword of sunlight, i guess.  #// TOSS - Описание, также как и с названием можно писать всё что угодно
+  name: TOSSSteelrapire
+  parent: TOSSBaseSword
+  id: TOSSSteelrapire
+  description: A sword of sunlight, i guess.
   components:
   - type: Sprite
-    sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi #// TOSS - Это отвечает за отображение спрайта в мире и иконках
+    sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi
   - type: MeleeWeapon
-    attackRate: 0.4 #//TOSS - Тут редактируется скорость атаки, Чем меньше число тем медленее атака (0.1 - медленно / 9 - быстро)
+    attackRate: 0.4
     damage:
       types:
         Slash: 3
         Blunt: 5
         Piercing: 7
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg #//TOSS Sound - Это отвечает за звуки
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi #//TOSS Type - Это показывает игре то, что этот предмет имеет спрайт в руках
-    size: Ginormous #//TOSS - Это указывает игре насколько обьект большой, имеется несколько видов, но именно этот и запрещает сувать вещи в рюкзаки
-  - type: Tag
-    tags:
-    - SheathableSword #//TOSS - Это переменная которая и позволяет сунуть именно этот предмет в ножны
-    #Спасибо)
+    sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          TOSSBrokenSteelrapire:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
     
 
 - type: entity
   name: TOSSShortsword
-  parent: BaseSword
+  parent: TOSSBaseSword
   id: TOSSShortsword
   description: A sword of sunlight, i guess.
   components:
@@ -110,11 +261,100 @@
         Slash: 7
         Blunt: 5
         Piercing: 5
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg 
   - type: Item 
     sprite: TOSS14/Objects/Weapons/Melee/Shortsword.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          TOSSBrokenShortsword:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
+
+
+
+#         --------BROKENSWORDS-------
+
+
+- type: entity
+  name: TOSSBrokenSunlightStraightSword
+  parent: BaseItem
+  id: TOSSBrokenSunlightStraightSword
+  description: A sword of sunlight, i guess.
+  components:
+  - type: Sprite
+    sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi
+    state: icon
+  - type: Item 
     size: Ginormous
-  - type: Tag
-    tags:
-    - SheathableSword
+
+- type: entity
+  name: TOSSBrokenPalash
+  parent: BaseItem
+  id: TOSSBrokenPalash
+  description: A sword of sunlight, i guess.
+  components:
+  - type: Sprite
+    sprite: TOSS14/Objects/Weapons/Melee/Palash.rsi
+    state: icon
+  - type: Item 
+    size: Ginormous
+
+- type: entity
+  name: TOSSBrokenRicardoRapire
+  parent: BaseItem
+  id: TOSSBrokenRicardoRapire
+  description: A sword of sunlight, i guess.
+  components:
+  - type: Sprite
+    sprite: TOSS14/Objects/Weapons/Melee/RicardoRapire.rsi
+    state: icon
+  - type: Item 
+    size: Ginormous
+
+
+- type: entity
+  name: TOSSBrokenSteelrapire
+  parent: BaseItem
+  id: TOSSBrokenSteelrapire
+  description: A sword of sunlight, i guess.
+  components:
+  - type: Sprite
+    sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi
+    state: icon
+  - type: Item 
+    size: Ginormous
+
+
+- type: entity
+  name: TOSSBrokenShortsword
+  parent: BaseItem
+  id: TOSSBrokenShortsword
+  description: A sword of sunlight, i guess.
+  components:
+  - type: Sprite
+    sprite: TOSS14/Objects/Weapons/Melee/Shortsword.rsi
+    state: icon
+  - type: Item 
+    size: Ginormous
