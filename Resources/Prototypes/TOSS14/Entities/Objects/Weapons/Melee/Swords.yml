@@ -307,8 +307,6 @@
     sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi
     state: icon
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/SunlightStraightSword.rsi
-    state: icon
     size: Ginormous
 
 - type: entity
@@ -321,8 +319,6 @@
     sprite: TOSS14/Objects/Weapons/Melee/Palash.rsi
     state: icon
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/Palash.rsi
-    state: icon
     size: Ginormous
 
 - type: entity
@@ -335,8 +331,6 @@
     sprite: TOSS14/Objects/Weapons/Melee/RicardoRapire.rsi
     state: icon
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/RicardoRapire.rsi
-    state: icon
     size: Ginormous
 
 
@@ -350,8 +344,6 @@
     sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi
     state: icon
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/Steelrapire.rsi
-    state: icon
     size: Ginormous
 
 
@@ -365,6 +357,4 @@
     sprite: TOSS14/Objects/Weapons/Melee/Shortsword.rsi
     state: icon
   - type: Item 
-    sprite: TOSS14/Objects/Weapons/Melee/Shortsword.rsi
-    state: icon
     size: Ginormous
