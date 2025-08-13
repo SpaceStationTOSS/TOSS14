@@ -9,9 +9,7 @@
   skinColoration: Hues
   maleFirstNames: firstMaleVulp
   femaleFirstNames: firstFemaleVulp
-  maleLastNames: VulpLast
-  femaleLastNames: VulpLast
-  naming: firstlast
+  lastNames: lastVulp
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites
