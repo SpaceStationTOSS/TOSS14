@@ -9,7 +9,7 @@
   skinColoration: Hues
   maleFirstNames: firstMaleTajaran
   femaleFirstNames: firstFemaleTajaran
-  lastNames: lastTajaran
+  lastNames: TajaranLast
 
 - type: speciesBaseSprites
   id: MobTajaranSprites
