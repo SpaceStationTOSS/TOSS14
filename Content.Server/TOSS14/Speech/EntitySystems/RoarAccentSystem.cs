@@ -6,11 +6,10 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class RoarAccentSystem : EntitySystem
 {
-    private static readonly Regex RegexLowerS = new("s+");
-    private static readonly Regex RegexUpperS = new("S+");
-    private static readonly Regex RegexInternalX = new(@"(\w)x");
-    private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
-    private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
+    private static readonly Regex RegexLowerR = new("r+");
+    private static readonly Regex RegexUpperR = new("R+");
+    private static readonly Regex RegexRUSLowerR = new("р+");
+    private static readonly Regex RegexRUSUpperR = new("Р+");
 
     public override void Initialize()
     {
@@ -22,16 +21,14 @@ public sealed class RoarAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        // hissss
-        message = RegexLowerS.Replace(message, "sss");
-        // hiSSS
-        message = RegexUpperS.Replace(message, "SSS");
-        // ekssit
-        message = RegexInternalX.Replace(message, "$1kss");
-        // ecks
-        message = RegexLowerEndX.Replace(message, "ecks$1");
-        // eckS
-        message = RegexUpperEndX.Replace(message, "ECKS$1");
+        // rawrrrr
+        message = RegexLowerR.Replace(message, "rr");
+        // RawRRRR
+        message = RegexUpperR.Replace(message, "RR");
+        // rawrrrr
+        message = RegexRUSLowerR.Replace(message, "рр");
+        // RawRRRR
+        message = RegexRUSUpperR.Replace(message, "РР");
 
         args.Message = message;
     }
