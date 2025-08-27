@@ -1,9 +1,5 @@
-﻿- type: examinableDamage
+﻿- type: localizedDataset
   id: TOSSSwordDamage
-  messages:
-    - comp-sword-damaged-1
-    - comp-sword-damaged-2
-    - comp-sword-damaged-3
-    - comp-sword-damaged-4
-    - comp-sword-damaged-5
-    - comp-sword-damaged-6
+  values:
+    prefix: comp-sword-damaged-
+    count: 6
