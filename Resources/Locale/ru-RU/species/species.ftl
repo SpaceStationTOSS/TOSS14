@@ -2,11 +2,11 @@
 
 species-name-human = Человек
 species-name-dwarf = Дворф
-species-name-reptilian = Унатх
-species-name-slime = Слаймолюд
+species-name-reptilian = Саури
+species-name-slime = Гелениды
 species-name-diona = Диона
 species-name-arachnid = Арахнид
-species-name-moth = Ниан
+species-name-moth = Фолкиры
 species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-gingerbread = вкуснейшая выпечка

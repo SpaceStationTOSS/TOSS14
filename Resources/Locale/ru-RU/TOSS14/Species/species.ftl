@@ -1,2 +1,2 @@
-species-name-vulpkanin = Вульпканин
-species-name-tajaran = Таяран
+species-name-vulpkanin = Кинид
+species-name-tajaran = Табакси
