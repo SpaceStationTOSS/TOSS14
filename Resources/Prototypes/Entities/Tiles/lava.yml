@@ -19,7 +19,7 @@
     effects:
     - !type:FlammableReaction
       multiplier: 3.75
-      multiplierOnExisting: 0.75
+      multiplierOnExisting: 90
     - !type:Ignite
   - type: Transform
     anchored: true
