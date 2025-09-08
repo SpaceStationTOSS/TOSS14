@@ -1,0 +1,88 @@
+##------------------POTATOES START---------------
+##           PEELED
+- type: entity
+  id: TOSSFoodCookedPeeledCuttedPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodCookedPeeledCuttedPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Cooked/CookedPeeledCuttedPotatoes.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodCookedPeeledCuttedPotatoesWithSalt
+  parent: FoodMealBase
+  name: TOSSFoodCookedPeeledCuttedPotatoesWithSalt
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Cooked/CookedPeeledCuttedPotatoesWithSalt.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodCookedPeeledPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodCookedPeeledPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Cooked/CookedPeeledPotatoes.rsi
+    state: icon
+
+##             UNPEELED
+- type: entity
+  id: TOSSFoodCookedCuttedPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodCookedCuttedPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Cooked/CookedCuttedPotatoes.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodCookedCuttedPotatoesWithSalt
+  parent: FoodMealBase
+  name: TOSSFoodCookedCuttedPotatoesWithSalt
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Cooked/CookedCuttedPotatoesWithSalt.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodCookedPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodCookedPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Cooked/CookedPotatoes.rsi
+    state: icon
+
+##------------------POTATOES END---------------
