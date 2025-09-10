@@ -1,3 +1,5 @@
+using Content.Server.Atmos.Components; //TOSS-Tweak
+using Content.Server.TOSS.Temperature;
 using Content.Server.Power.Components;
 using Content.Shared.Placeable;
 using Content.Shared.Temperature;
@@ -44,6 +46,21 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
                 _temperature.ChangeHeat(ent, energy);
             }
         }
+
+        //TOSS-Tweak
+        var flammbaleQuery = EntityQueryEnumerator<TOSSFlammableEntityHeaterComponent, ItemPlacerComponent, FlammableComponent>();
+        while (flammbaleQuery.MoveNext(out var uid, out _, out var placer, out var flammable))
+        {
+            if (!flammable.OnFire)
+                return;
+
+            var energy = flammable.FireStacks * deltaTime * 300;
+            foreach (var ent in placer.PlacedEntities)
+            {
+                _temperature.ChangeHeat(ent, energy);
+            }
+        }
+        //TOSS-Tweak
     }
 
     /// <remarks>

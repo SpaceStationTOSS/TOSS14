@@ -29,6 +29,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Content.Server.TOSS.Temperature; //TOSS-Tweak
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -328,6 +329,11 @@ namespace Content.Server.Atmos.EntitySystems
             var extinguished = new ExtinguishedEvent();
             RaiseLocalEvent(uid, ref extinguished);
 
+            //TOSS-Tweak
+            var ev = new OnFireChangedEvent(flammable.OnFire);
+            RaiseLocalEvent(uid, ref ev);
+            //TOSS-Tweak
+
             UpdateAppearance(uid, flammable);
         }
 
@@ -352,9 +358,19 @@ namespace Content.Server.Atmos.EntitySystems
 
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
+
+                //TOSS-Tweak
+                var ev = new OnFireChangedEvent(flammable.OnFire);
+                RaiseLocalEvent(uid, ref ev);
+                //TOSS-Tweak
             }
 
             UpdateAppearance(uid, flammable);
+
+            //TOSS-Tweak
+            if (flammable.FirestackFadeOnIgnite != null)
+                flammable.FirestackFade = flammable.FirestackFadeOnIgnite.Value;
+            //TOSS-Tweak
         }
 
         private void OnDamageChanged(EntityUid uid, IgniteOnHeatDamageComponent component, DamageChangedEvent args)
@@ -474,6 +490,11 @@ namespace Content.Server.Atmos.EntitySystems
                     _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
+
+                    //TOSS-Tweak
+                    if (flammable.FirestackFadeFade != 0)
+                        flammable.FirestackFade += flammable.FirestackFadeFade * frameTime;
+                    //TOSS-Tweak
                 }
                 else
                 {

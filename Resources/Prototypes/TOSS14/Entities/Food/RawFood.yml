@@ -1,0 +1,75 @@
+##------------------POTATOES START---------------
+
+##Peeled
+- type: entity
+  id: TOSSFoodPeeledPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodPeeledPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Raw/PeeledPotatoes.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodPeeledCuttedPotatoesWithSalt
+  parent: FoodMealBase
+  name: TOSSFoodPeeledCuttedPotatoesWithSalt
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Raw/PeeledCuttedPotatoesWithSalt.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodPeeledCuttedPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodPeeledCuttedPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Raw/PeeledCuttedPotatoes.rsi
+    state: icon
+
+##   NOT Peeled
+
+- type: entity
+  id: TOSSFoodCuttedPotatoesWithSalt
+  parent: FoodMealBase
+  name: TOSSFoodCuttedPotatoesWithSalt
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+      - salty
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Raw/CuttedPotatoesWithSalt.rsi
+    state: icon
+
+- type: entity
+  id: TOSSFoodCuttedPotatoes
+  parent: FoodMealBase
+  name: TOSSFoodCuttedPotatoes
+  description: Totally baked.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potatoes
+  - type: Sprite
+    sprite: TOSS14/Objects/Food/Raw/CuttedPotatoes.rsi
+    state: icon
+
+##------------------POTATOES END---------------
